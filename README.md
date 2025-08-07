@@ -6,7 +6,7 @@ Follow these steps to set up and run the project locally:
 
 1. Clone the Repository
 bash
-git clone https://github.com/YOUR_USERNAME/EventBooking_API.git
+git clone https://github.com/Holboeva/EventBooking_API
 cd EventBooking_API
 
 2. Create and Activate a Virtual Environment
