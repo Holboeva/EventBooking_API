@@ -1,88 +1,114 @@
-🎟️ EventBooking API
-EventBooking is a Django-based RESTful API that allows users to create, view, and register for events. Authenticated users can organize their own events and register for others'. The API is secured with JWT authentication and provides Swagger documentation for easy testing and integration.
+# 🎟️ EventBooking API
 
-🚀 Getting Started
-Follow these steps to set up and run the project locally:
+EventBooking is a Django-based REST API that allows users to view and register for events. Organizers can create events, and authenticated users can register for them. The API also includes Swagger documentation for easy testing and integration.
 
-1. Clone the Repository
-bash
+---
+
+## 🚀 Getting Started
+
+Follow these steps to run the project locally.
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/Holboeva/EventBooking_API
 cd EventBooking_API
+```
 
-2. Create and Activate a Virtual Environment
-bash
-python -m venv .venv
-source .venv/bin/activate        # Linux/macOS
-.venv\Scripts\activate           # Windows
+### 2. Create & Activate Virtual Environment
 
-3. Install Dependencies
-bash
-pip install -r requirements.txt
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+```
 
-4. Create a .env File (Optional)
-Create a .env file in the root directory and add your environment variables:
+### 3. Install Requirements
 
-env
-SECRET_KEY=your-django-secret-key
+```bash
+pip install -r req.txt
+```
+
+### 4. Configure Environment Variables
+
+Create a `.env` file in the root directory and add your settings (e.g., database config, secret key).  
+Example:
+
+```
+SECRET_KEY=your-secret-key
 DEBUG=True
+```
 
-5. Apply Migrations
-bash
+### 5. Apply Migrations
+
+```bash
 python manage.py makemigrations
 python manage.py migrate
+```
 
-6. Create Superuser (Optional – for Admin Panel)
-bash
-python manage.py createsuperuser
+### 6. Run the Development Server
 
-7. Run the Development Server
-bash
+```bash
 python manage.py runserver
-➡️ Open in browser: http://localhost:8000
+```
 
-⚙️ Tech Stack
-Category	Technology
-Language	Python 3.12
-Framework	Django, Django REST Framework
-Auth	JWT (SimpleJWT)
-Docs	Swagger (drf-yasg)
-Database	SQLite (default), PostgreSQL compatible
+Visit: [http://localhost:8000](http://localhost:8000)
 
-📚 API Documentation (Swagger)
-Interactive documentation is available via Swagger UI:
 
-🔗 http://localhost:8000/swagger/
+## ⚙️ Tech Stack
 
-🔀 Main API Endpoints
-Method	Endpoint	Description	Auth Required
-GET	/api/events/	List all events	❌ No
-POST	/api/events/	Create a new event	✅ Yes
-GET	/api/events/my_events/	View your created events	✅ Yes
-POST	/api/registrations/	Register for an event	✅ Yes
-GET	/api/registrations/my_registrations/	View your event registrations	✅ Yes
-POST	/api/token/	Obtain access & refresh tokens (login)	❌ No
+| Category        | Technology                   |
+|----------------|------------------------------|
+| Language        | Python 3.12                  |
+| Framework       | Django, Django REST Framework |
+| Auth            | Token / JWT (djoser / drf-simplejwt) |
+| Documentation   | Swagger (drf-yasg)           |
+| Database        | SQLite (default), PostgreSQL compatible |
 
-👤 User Roles
-Admin / Organizer – Can create and manage events
+---
 
-Authenticated User – Can register for events
+## 📚 API Documentation (Swagger)
 
-Anonymous Visitor – Can only view public events
+The project uses **Swagger UI** for interactive API exploration. After running the server, visit:
 
-📁 Project Structure (Example)
-bash
-EventBooking_API/
-├── apps/               # Event model & endpoints
-├── root/
+👉 [http://localhost:8000/swagger/](http://localhost:8000/swagger/)
+
+### Sample Endpoints:
+
+| Method | Endpoint                | Description               | Auth Required |
+|--------|-------------------------|---------------------------|----------|
+| GET    | /api/events/            | List all events           | ❌ No     |
+| POST   | /api/events/            | Create a new event        | ✅ Yes    |
+| GET    | /api/events/<id>/       | List user's event         | ✅ Yes    |
+| POST   | /api/registrations/     | Register for an event     | ✅ Yes    |
+| GET    | /api/registrations/<id> | lists user's registration | ✅ Yes    |
+| POST   | /api/auth/token/        | Get auth token (login)    | ❌ No     |
+
+---
+
+## 👤 User Roles
+
+- **Admin/Organizer** – Can create and manage events
+- **Authenticated User** – Can register for events
+- **Anonymous** – Can view events, but cannot register
+
+---
+
+## 📦 Folder Structure
+
+```
+EventBooking/
+├── apps/              # App containing event logic
+├── root
 ├── manage.py
 ├── requirements.txt
-└── README.md
+└── ...
+```
 
-🙋‍♀️ Author
-Vazira Holboeva
-🎓 Software Engineering Student
-📍 Tashkent, Uzbekistan
+
+## 🙋‍♀️ Author
+
+**Vazira Holboeva**  
 
 📫 Email: asmoholboyeva@gmail.com
-🔗 GitHub: https://github.com/Holboeva
+🔗 GitHub: https://github.com/Holboeva 
 🔗 LinkedIn: https://www.linkedin.com/in/vazira-holboeva/
